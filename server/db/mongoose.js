@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds123822.mlab.com:23822/mongo_data',{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://ankitrj:ankit1430@ds125872.mlab.com:25872/ankitrj-todo-api');
 
 module.exports = { mongoose };
