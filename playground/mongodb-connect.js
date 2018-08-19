@@ -7,36 +7,34 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',{ useNewUrlParser: true 
         return console.log('Unable to connect to MongoDB server');
     }
     console.log('Connected to MongoDB server');
-    const db = client.db('TodoApp');
-    // db.collection('Todos').insertOne({
-    //     text : 'Something to do',
-    //     completed: false
+    // const db = client.db('TodoApp');
+    // // db.collection('Todos').insertOne({
+    // //     text : 'Something to do',
+    // //     completed: false
          
-    // },(err,result) => {
-    //     if(err){
-    //         return console.log('Unable to connect MongoDB server: ', err);
-    //     }
-    //     console.log(JSON.stringify(result.ops, undefined, 2));
-    // });
+    // // },(err,result) => {
+    // //     if(err){
+    // //         return console.log('Unable to connect MongoDB server: ', err);
+    // //     }
+    // //     console.log(JSON.stringify(result.ops, undefined, 2));
+    // // });
 
-    // db.collection('Users').insertOne({
-    //     name: 'Ankit Raj',
-    //     age: 22,
-    //     location: 'Varanasi'
+    // db.collection('users').insertOne({
+    //     email: 'ankit@example.com'
     // },(err, result) => {
     //     if(err){
     //         return console.log('Unable to connect MongoDB server: ', err);
     //     }
     //     console.log(JSON.stringify(result.ops, undefined, 2));
     // });
-    db.collection('Todos').insertOne({
-        text: 'read computer networks',
-        completed: false
-    },(err, result) => {
-        if(err){
-            return console.log('Unable to connect MongoDB server: ', err);
-        }
-        console.log(JSON.stringify(result.ops, undefined, 2));
-    });
+    // // db.collection('Todos').insertOne({
+    // //     text: 'read computer networks',
+    // //     completed: false
+    // // },(err, result) => {
+    // //     if(err){
+    // //         return console.log('Unable to connect MongoDB server: ', err);
+    // //     }
+    // //     console.log(JSON.stringify(result.ops, undefined, 2));
+    // // });
     client.close();
 });
