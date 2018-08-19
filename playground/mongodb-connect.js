@@ -19,10 +19,19 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',{ useNewUrlParser: true 
     //     console.log(JSON.stringify(result.ops, undefined, 2));
     // });
 
-    db.collection('Users').insertOne({
-        name: 'Ankit Raj',
-        age: 22,
-        location: 'Varanasi'
+    // db.collection('Users').insertOne({
+    //     name: 'Ankit Raj',
+    //     age: 22,
+    //     location: 'Varanasi'
+    // },(err, result) => {
+    //     if(err){
+    //         return console.log('Unable to connect MongoDB server: ', err);
+    //     }
+    //     console.log(JSON.stringify(result.ops, undefined, 2));
+    // });
+    db.collection('Todos').insertOne({
+        text: 'read computer networks',
+        completed: false
     },(err, result) => {
         if(err){
             return console.log('Unable to connect MongoDB server: ', err);

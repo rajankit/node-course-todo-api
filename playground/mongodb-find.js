@@ -24,7 +24,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',{ useNewUrlParser: true 
     db.collection('Users').find({name: 'Ankit Raj'}).toArray().then((docs) => {
         console.log(`${JSON.stringify(docs, undefined, 2)}`);
     },(err) => {
-        console.log('Unable tp fetch data: ',err);
+        console.log('Unable t0 fetch data: ',err);
     });
 
     // client.close();
