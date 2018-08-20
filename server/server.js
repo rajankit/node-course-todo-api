@@ -21,6 +21,12 @@ app.post('/todos', (req, res) => {
         res.status(400).send(e);
     });
 });
+app.get('/', (req, res) => {
+    res.status(200).send('Welcome to Todos');
+},(e) => {
+    res.status(400).send(e);
+});
+
 
 app.get('/todos', (req, res) => {
     Todo.find().then((todos) => {
