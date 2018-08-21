@@ -14,6 +14,8 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
+// For TODOS
+
 app.post('/todos', (req, res) => {
     var todo = new Todo({
         text: req.body.text
@@ -72,7 +74,7 @@ app.delete('/todos/:id', (req, res) => {
 
 app.patch('/todos/:id', (req, res) => {
     var id = req.params.id;
-    var body = _.pick(req.body,['text', 'completed','completedAt']);
+    var body = _.pick(req.body,['text', 'completed']);
     if (!ObjectId.isValid(id)) {
         return res.status(404).send();
     }
@@ -93,6 +95,23 @@ app.patch('/todos/:id', (req, res) => {
     });
 
 });
+
+
+// FOR USERS
+
+app.post('/users',(req, res) => {
+    var body = _.pick(req.body,['email', 'password']);
+    var user = new User(body);
+
+    user.save().then(() => {
+        return user.generateAuthToken();
+    }).then((token) => {
+        res.header('x-auth', token).send(user); // .toJSON( is called internally by JSON.stringify())
+    }).catch((e) => {
+        res.status(400).send(e);
+    });
+});
+
 
 app.listen(port, () => {
     console.log(`Started on port ${port}`);
